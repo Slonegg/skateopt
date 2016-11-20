@@ -1,0 +1,28 @@
+[requires]
+Boost/1.61.0@merlin-ext/stable
+eigen/3.2.8@merlin-ext/stable
+flann/1.8.4@merlin-ext/stable
+gtest/1.7.0@lasote/stable
+opencv/3.1.1@merlin-ext/stable
+openni2/2.2@merlin-ext/stable
+pcl/1.8.0@merlin-ext/stable
+qhull/2015.2@merlin-ext/stable
+VTK/7.1.0@merlin-ext/stable
+
+[generators]
+cmake
+
+[options]
+Boost:shared=True
+VTK:shared=True
+
+[imports]
+    bin, *.dll -> ./bin
+    lib, *.dll -> ./bin
+    x64/vc12/bin, *.dll -> ./bin
+    bin/Redist, *.dll -> ./bin
+    bin/Redist, *.so -> ./bin
+    bin/Redist, *.ini -> ./bin
+    bin/Redist/OpenNI2/Drivers, *.dll -> ./bin/OpenNI2/Drivers
+    bin/Redist/OpenNI2/Drivers, *.so -> ./bin/OpenNI2/Drivers
+    bin/Redist/OpenNI2/Drivers, *.ini -> ./bin/OpenNI2/Drivers

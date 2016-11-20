@@ -1,0 +1,3 @@
+if(EXISTS ${CMAKE_ARGV3})
+    file(COPY ${CMAKE_ARGV3} DESTINATION ${CMAKE_ARGV4})
+endif()
