@@ -1,1 +1,1 @@
-add_subdirectory(rigid_alignment)
+add_subdirectory(rosenbrock)

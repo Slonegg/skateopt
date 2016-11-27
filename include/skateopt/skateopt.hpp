@@ -21,12 +21,12 @@ struct SkateOptOptions
 	size_t maxNumIterations;
 };
 
-template<typename T>
+template<typename Scalar>
 class SkateOptSolver
 {
 private:
-	typedef Eigen::Matrix<T, Eigen::Dynamic, 1> Vector;
-	typedef Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic> Matrix;
+	typedef Eigen::Matrix<Scalar, Eigen::Dynamic, 1> Vector;
+	typedef Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> Matrix;
 
 	struct Candidate
 	{
@@ -41,7 +41,8 @@ public:
 	{
 	}
 
-	void solve()
+    template<typename Problem>
+	void solve(Problem& problem, Vector& x, Scalar& fx)
 	{
 		std::random_device rd;
 		std::mt19937 gen(rd());

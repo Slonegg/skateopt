@@ -55,5 +55,19 @@ if (CMAKE_COMPILER_IS_GNUCXX)
 endif()
 add_definitions(-DGLAD_GLAPI_EXPORT)
 
-add_subdirectory(src)
+# skateopt headers
+set (INC_DIR ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME})
+set (${PROJECT_NAME}_GLOBAL_HEADERS
+	${INC_DIR}/LBFGS.h
+	${INC_DIR}/${PROJECT_NAME}.hpp
+)
+set (LBFGS_HEADERS
+	${INC_DIR}/LBFGS/LineSearch.h
+	${INC_DIR}/LBFGS/Param.h
+)
+set (${PROJECT_NAME}_HEADERS ${${PROJECT_NAME}_GLOBAL_HEADERS} ${LBFGS_HEADERS})
+
+source_group(${PROJECT_NAME} FILES ${${PROJECT_NAME}_GLOBAL_HEADERS})
+source_group(${PROJECT_NAME}\\LBFGS FILES ${LBFGS_HEADERS})
+
 add_subdirectory(demos)
